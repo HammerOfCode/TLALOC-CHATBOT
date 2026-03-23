@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tlaloc Chatbot UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="themes.css">
+</head>
+<body data-theme="classic-chat">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Conversation list">
+      <div class="sidebar__top">
+        <p class="sidebar__eyebrow">Workspace</p>
+        <h2>Recent Chats</h2>
+      </div>
+      <nav class="conversation-list">
+        <button class="conversation-card conversation-card--active" type="button">
+          <span class="conversation-card__title">Product Design Review</span>
+          <span class="conversation-card__meta">Last active 2m ago</span>
+        </button>
+        <button class="conversation-card" type="button">
+          <span class="conversation-card__title">Weekend Planner</span>
+          <span class="conversation-card__meta">Saved conversation</span>
+        </button>
+        <button class="conversation-card" type="button">
+          <span class="conversation-card__title">Code Debug Session</span>
+          <span class="conversation-card__meta">Contains snippets</span>
+        </button>
+      </nav>
+    </aside>
+
+    <section class="chat-layout">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">Modular Frontend Demo</p>
+          <h1>Tlaloc Chatbot</h1>
+        </div>
+        <div class="toolbar">
+          <label class="theme-picker" for="modelSelect">
+            <span>Model</span>
+            <select id="modelSelect" aria-label="Select Ollama model">
+              <option value="gemma3:1b">gemma3:1b</option>
+            </select>
+          </label>
+          <label class="theme-picker" for="themeSelect">
+            <span>Theme</span>
+            <select id="themeSelect" aria-label="Select chatbot theme">
+              <option value="classic-chat">Classic Chat</option>
+              <option value="minimal-ai">Minimal AI</option>
+              <option value="cyberpunk-neon">Cyberpunk Neon</option>
+              <option value="terminal-hacker">Terminal Hacker</option>
+              <option value="glassmorphism">Glassmorphism</option>
+              <option value="modern-dashboard">Modern Dashboard</option>
+            </select>
+          </label>
+          <div class="status-pill" id="connectionStatus" aria-live="polite">
+            Connecting to Ollama...
+          </div>
+        </div>
+      </header>
+
+      <main class="chat-main">
+        <div id="chatHistory" class="chat-history" aria-live="polite"></div>
+      </main>
+
+      <footer class="chat-footer">
+        <form id="chatForm" class="composer" autocomplete="off">
+          <label class="composer__field" for="messageInput">
+            <span class="sr-only">Message input</span>
+            <textarea
+              id="messageInput"
+              rows="1"
+              placeholder="Ask something, paste code, or try a markdown prompt..."
+            ></textarea>
+          </label>
+          <button id="sendButton" class="send-button" type="submit">Send</button>
+        </form>
+      </footer>
+    </section>
+  </div>
+
+  <template id="messageTemplate">
+    <article class="message">
+      <div class="message__avatar" aria-hidden="true"></div>
+      <div class="message__content">
+        <div class="message__meta">
+          <span class="message__author"></span>
+          <time class="message__time"></time>
+        </div>
+        <div class="message__bubble"></div>
+        <button class="copy-button" type="button">Copy</button>
+      </div>
+    </article>
+  </template>
+
+  <template id="typingTemplate">
+    <article class="message message--assistant message--typing">
+      <div class="message__avatar" aria-hidden="true">AI</div>
+      <div class="message__content">
+        <div class="message__meta">
+          <span class="message__author">Assistant</span>
+          <span class="message__time">typing...</span>
+        </div>
+        <div class="message__bubble typing-indicator" aria-label="Assistant is typing">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

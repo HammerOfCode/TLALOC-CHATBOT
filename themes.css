@@ -1,0 +1,138 @@
+body[data-theme="classic-chat"] {
+  --bg: #dbeafe;
+  --panel: #f8fafc;
+  --panel-alt: #e2e8f0;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: rgba(15, 23, 42, 0.08);
+  --accent: #0f766e;
+  --accent-strong: #14b8a6;
+  --assistant-bubble: #ffffff;
+  --user-bubble: linear-gradient(135deg, #0f766e, #14b8a6);
+  --user-text: #ffffff;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+body[data-theme="minimal-ai"] {
+  --bg: #f5f5f4;
+  --panel: #ffffff;
+  --panel-alt: #f1f5f9;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(17, 24, 39, 0.08);
+  --accent: #111827;
+  --accent-strong: #374151;
+  --assistant-bubble: #ffffff;
+  --user-bubble: linear-gradient(135deg, #111827, #374151);
+  --user-text: #ffffff;
+  --shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+}
+
+body[data-theme="cyberpunk-neon"] {
+  --bg: #080111;
+  --panel: rgba(17, 24, 39, 0.92);
+  --panel-alt: rgba(11, 15, 25, 0.92);
+  --text: #f5d0fe;
+  --muted: #94a3b8;
+  --border: rgba(34, 211, 238, 0.2);
+  --accent: #22d3ee;
+  --accent-strong: #f97316;
+  --assistant-bubble: linear-gradient(180deg, rgba(17, 24, 39, 0.95), rgba(8, 1, 17, 0.95));
+  --user-bubble: linear-gradient(135deg, #f97316, #ec4899);
+  --user-text: #fff7ed;
+  --shadow: 0 0 24px rgba(34, 211, 238, 0.18);
+}
+
+body[data-theme="cyberpunk-neon"] .message__bubble,
+body[data-theme="cyberpunk-neon"] .composer__field,
+body[data-theme="cyberpunk-neon"] .conversation-card,
+body[data-theme="cyberpunk-neon"] .theme-picker select {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.14), 0 0 28px rgba(236, 72, 153, 0.08);
+}
+
+body[data-theme="terminal-hacker"] {
+  --bg: #020403;
+  --panel: #031106;
+  --panel-alt: #041b08;
+  --text: #93fca5;
+  --muted: #4ade80;
+  --border: rgba(74, 222, 128, 0.22);
+  --accent: #22c55e;
+  --accent-strong: #16a34a;
+  --assistant-bubble: #031106;
+  --user-bubble: linear-gradient(135deg, #052e16, #14532d);
+  --user-text: #bbf7d0;
+  --shadow: none;
+  --font-sans: "IBM Plex Mono", monospace;
+}
+
+body[data-theme="terminal-hacker"] .message__bubble,
+body[data-theme="terminal-hacker"] .composer__field,
+body[data-theme="terminal-hacker"] .theme-picker select,
+body[data-theme="terminal-hacker"] .conversation-card {
+  border-radius: 6px;
+}
+
+body[data-theme="glassmorphism"] {
+  --bg: linear-gradient(135deg, #bfdbfe, #fbcfe8 55%, #d9f99d);
+  --panel: rgba(255, 255, 255, 0.22);
+  --panel-alt: rgba(255, 255, 255, 0.18);
+  --text: #172554;
+  --muted: #334155;
+  --border: rgba(255, 255, 255, 0.28);
+  --accent: #2563eb;
+  --accent-strong: #7c3aed;
+  --assistant-bubble: rgba(255, 255, 255, 0.38);
+  --user-bubble: linear-gradient(135deg, rgba(37, 99, 235, 0.92), rgba(124, 58, 237, 0.88));
+  --user-text: #eff6ff;
+  --shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+body[data-theme="glassmorphism"] .chat-header,
+body[data-theme="glassmorphism"] .chat-footer,
+body[data-theme="glassmorphism"] .message__bubble,
+body[data-theme="glassmorphism"] .composer__field,
+body[data-theme="glassmorphism"] .theme-picker select,
+body[data-theme="glassmorphism"] .conversation-card {
+  backdrop-filter: blur(20px);
+}
+
+body[data-theme="modern-dashboard"] {
+  --bg: #edf2ff;
+  --panel: #ffffff;
+  --panel-alt: #e0e7ff;
+  --text: #1e1b4b;
+  --muted: #6366f1;
+  --border: rgba(99, 102, 241, 0.14);
+  --accent: #4f46e5;
+  --accent-strong: #7c3aed;
+  --assistant-bubble: #ffffff;
+  --user-bubble: linear-gradient(135deg, #4f46e5, #7c3aed);
+  --user-text: #ffffff;
+  --shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
+}
+
+body[data-theme="modern-dashboard"] .app-shell {
+  grid-template-columns: minmax(260px, var(--sidebar-width)) minmax(0, 1fr);
+}
+
+body[data-theme="modern-dashboard"] .sidebar {
+  display: block;
+  padding: 24px 18px;
+  border-right: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(224, 231, 255, 0.72));
+}
+
+body[data-theme="modern-dashboard"] .chat-layout {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  body[data-theme="modern-dashboard"] .app-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-theme="modern-dashboard"] .sidebar {
+    display: none;
+  }
+}
